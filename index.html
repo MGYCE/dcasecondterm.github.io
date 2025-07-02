@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam Result Search</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px;
+    }
+    .form-container {
+      max-width: 400px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Search Exam Result</h2>
+    
+    <form id="resultForm">
+      <label for="exam">Select Exam:</label>
+      <select id="exam" name="exam" required>
+        <option value="">--Select Exam--</option>
+        <option value="Mid Term">Mid Term</option>
+        <option value="Final Exam">Final Exam</option>
+        <option value="Supplementary">Supplementary</option>
+      </select>
+
+      <label for="rollNo">Enter Roll Number:</label>
+      <input type="text" id="rollNo" name="rollNo" placeholder="e.g. 123456" required />
+
+      <button type="submit">Get Result</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('resultForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const exam = document.getElementById('exam').value;
+      const rollNo = document.getElementById('rollNo').value;
+
+      // Example of result simulation (replace with real backend request)
+      if (rollNo === "123456" && exam === "Final Exam") {
+        document.getElementById('result').innerText = "Result: Passed with 85%";
+      } else {
+        document.getElementById('result').innerText = "Result not found. Please check your roll number and exam.";
+      }
+    });
+  </script>
+
+</body>
+</html>
