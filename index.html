@@ -1,74 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Second Term 2025</title>
+  <meta charset="UTF-8">
+  <title>View Student Results</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 50px;
-    }
-    .form-container {
-      max-width: 400px;
       padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
     }
-    label {
-      display: block;
+
+    select, table {
       margin-top: 15px;
     }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
+
+    table {
+      border-collapse: collapse;
+      width: 80%;
     }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
+
+    th, td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <h2>Select Subject to View Results</h2>
 
-  <div class="form-container">
-    <h2>DCA Second Term Exam Result</h2>
-    
-    <form id="resultForm">
-      <label for="exam">Select Exam:</label>
-      <select id="exam" name="exam" required>
-        <option value="">--Select Exam--</option>
-        <option value="Mid Term">Mid Term</option>
-        <option value="Final Exam">Final Exam</option>
-        <option value="Supplementary">Supplementary</option>
-      </select>
+  <label for="subject">Choose a subject:</label>
+  <select id="subject" onchange="showResults()">
+    <option value="">--Select--</option>
+    <option value="theory">Theory</option>
+    <option value="practical">Practical</option>
+  </select>
 
-      <label for="rollNo">Enter Roll Number:</label>
-      <input type="text" id="rollNo" name="rollNo" placeholder="e.g. 123456" required />
+  <!-- Results Tables -->
+  <div id="results">
+    <div id="theory" class="hidden">
+      <h3>Theory Results</h3>
+      <table>
+        <tr><th>Student Name</th><th>Score</th></tr>
+        <tr><td>John Doe</td><td>85</td></tr>
+        <tr><td>Jane Smith</td><td>90</td></tr>
+      </table>
+    </div>
 
-      <button type="submit">Get Result</button>
-    </form>
-
-    <div id="result"></div>
-  </div>
+    <div id="practical" class="hidden">
+      <h3>Practical Results</h3>
+      <table>
+        <tr><th>Student Name</th><th>Score</th></tr>
+        <tr><td>John Doe</td><td>78</td></tr>
+        <tr><td>Jane Smith</td><td>92</td></tr>
+      </table>
+    </div>
 
   <script>
-    document.getElementById('resultForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+    function showResults() {
+      const subjects = ["math", "science", "english"];
+      const selected = document.getElementById("subject").value;
 
-      const exam = document.getElementById('exam').value;
-      const rollNo = document.getElementById('rollNo').value;
+      subjects.forEach(subject => {
+        document.getElementById(subject).classList.add("hidden");
+      });
 
-      // Example of result simulation (replace with real backend request)
-      if (rollNo === "123456" && exam === "Final Exam") {
-        document.getElementById('result').innerText = "Result: Passed with 85%";
+      if (selected) {
+        document.getElementById(selected).classList.remove("hidden");
       }
-       if (rollNo === "123457" && exam === "Supplementary") {
-        document.getElementById('result').innerText = "Result: Passed with 85%";
-      }else {
-        document.getElementById('result').innerText = "Result not found. Please check your roll number and exam.";
-      }
-    });
+    }
   </script>
-
 </body>
 </html>
