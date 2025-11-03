@@ -30,7 +30,7 @@
   </style>
 </head>
 <body>
-  <h2>DCA Scholarship Eligible Candidates 2025-2026</h2>
+  <h2>DCA Scholarship Eligible Candidates</h2>
 
   <label for="subject">Choose a Year:</label>
   <select id="subject" onchange="showResults()">
@@ -42,7 +42,7 @@
   <!-- Results Tables -->
   <div id="results">
     <div id="2024" class="hidden">
-      <h3>2024-25</h3>
+      <h3>2024</h3>
       <table>
         <tr><th>Eligible Student Name</th><th>Scholarship Amount</th></tr>
         <tr><td>No Students Found</td><td>0</td></tr>
@@ -50,7 +50,7 @@
     </div>
 
     <div id="2025" class="hidden">
-      <h3>2025-26</h3>
+      <h3>2025</h3>
       <table>
         <tr><th>Student Name</th><th>Scholarship Amount</th></tr>
         <tr><td>Punam Gour</td><td>24</td></tr>
@@ -59,7 +59,7 @@
 
   <script>
     function showResults() {
-      const subjects = ["2024-25", "2025-26"];
+      const subjects = ["2024", "2025"];
       const selected = document.getElementById("subject").value;
 
       subjects.forEach(subject => {
