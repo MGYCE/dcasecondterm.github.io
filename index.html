@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>View Student Results</title>
+  <title>Find Eligible Scheme</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -30,48 +30,36 @@
   </style>
 </head>
 <body>
-  <h2>DCA Second Term Examination Result</h2>
+  <h2>DCA Scholarship Eligible Candidates 2025-2026</h2>
 
-  <label for="subject">Choose a subject:</label>
+  <label for="subject">Choose a Year:</label>
   <select id="subject" onchange="showResults()">
     <option value="">--Select--</option>
-    <option value="theory">Theory</option>
-    <option value="practical">Practical</option>
+    <option value="theory">2024</option>
+    <option value="practical">2025</option>
   </select>
 
   <!-- Results Tables -->
   <div id="results">
     <div id="theory" class="hidden">
-      <h3>Theory Results</h3>
+      <h3>2024-25</h3>
       <table>
-        <tr><th>Student Name</th><th>Score (Out of 25)</th></tr>
+        <tr><th>Eligible Student Name</th><th>Score (Out of 25)</th></tr>
         <tr><td>No Students Found</td><td>0</td></tr>
       </table>
     </div>
 
     <div id="practical" class="hidden">
-      <h3>Practical Results</h3>
+      <h3>2025-26</h3>
       <table>
-        <tr><th>Student Name</th><th>Score (Out of 25)</th></tr>
+        <tr><th>Student Name</th><th>Scholarship Amount</th></tr>
         <tr><td>Punam Gour</td><td>24</td></tr>
-        <tr><td>Pramila Tanti</td><td>23</td></tr>
-        <tr><td>Jayanti Mitra</td><td>23</td></tr>
-        <tr><td>Sayan Bhowmik</td><td>19</td></tr>
-        <tr><td>Prithwiraj Chakraborty</td><td>21</td></tr>
-        <tr><td>Sayan Biswas</td><td>22</td></tr>
-        <tr><td>Subham Biswas</td><td>19</td></tr>
-        <tr><td>Raj Das</td><td>22</td></tr>
-        <tr><td>Gourab Sarkar</td><td>21</td></tr>
-        <tr><td>Santanu Sarkar</td><td>0</td></tr>
-        <tr><td>Joy Sarkar</td><td>22</td></tr>
-        <tr><td>Nayan Rudrapaul</td><td>20</td></tr>
-        <tr><td>Chiranjit Sarkar</td><td>22</td></tr>
       </table>
     </div>
 
   <script>
     function showResults() {
-      const subjects = ["theory", "practical"];
+      const subjects = ["2024", "2025"];
       const selected = document.getElementById("subject").value;
 
       subjects.forEach(subject => {
